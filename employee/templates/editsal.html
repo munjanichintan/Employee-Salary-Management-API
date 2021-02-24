@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Edit</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+</head>
+<body>
+	<h2>Update Salary</h2>
+	<form method="POST" class="post-form" action="/updatesal/{{employee.id}}">
+		{% csrf_token %}
+		<div class="container">
+			<br>
+			<div>
+				<label>Employee ID: {{employee.eid.eid}}</label>
+			</div>
+			<br>
+			<div>
+				<label>Employee Name: {{employee.eid.ename}}</label>
+			</div>
+			<br>
+			<div>
+				<label>Employee Email: {{employee.eid.eemail}}</label>
+			</div>
+			<br>
+			<div>
+				<label>Employee Contact: {{employee.eid.econtact}}</label>
+			</div>
+			<br>
+			<div>
+				<label>(Salary)Employee Id: {{employee.id}}</label>
+			</div>
+			<br>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Employee Salary</label>
+				<div class="col-sm-4">
+					<input type="number" name="esalary" id="id_esalary" value="{{employee.esalary}}">
+				</div>
+			</div>
+			<div class="form-group row">
+				|<label class="col-sm-1 col-form-label"></label>
+				<div class="col-sm-4">
+					<button type="submit" class="btn btn-success">Update Salary</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Salary Records</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{%static 'css/style.css'%}">
+</head>
+<body>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th class="my_tr">Employee EID</th>
+				<th class="my_tr">Employee Name</th>
+				<th class="my_tr">Employee Salary</th>
+				<th class="my_tr">ID (Salary)</th>
+				<th class="my_tr">Actions</th>
+			</tr>
+			
+		</thead>
+		<tbody>
+			{% for employee in employees %}
+			<tr>
+				<td>{{employee.eid.eid}}</td>
+				<td>{{employee.eid.ename}}</td>
+				<td>{{employee.esalary}}</td>
+				<td>{{employee.id}}</td>
+				<td>
+					<a href="/editsal/{{employee.id}}">
+						<span class="glyphicon glyphicon-pencil">
+							Edit
+						</span>
+					</a>
+					<a href="/deletesal/{{employee.id}}">Delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+<br>
+<br>
+<center>
+	<a href="/indexsal1/" class="btn btn-primary">Add New Record in Salary</a>
+</center>
+</body>
+</html>

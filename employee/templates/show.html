@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Employee Records</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{%static 'css/style.css'%}">
+</head>
+<body>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th class="my_tr">Employee ID</th>
+				<th class="my_tr">Employee Name</th>
+				<th class="my_tr">Employee Email</th>
+				<th class="my_tr">Employee Contact</th>
+				<th class="my_tr">Actions</th>
+			</tr>
+			
+		</thead>
+		<tbody>
+			{% for employee in employees %}
+			<tr>
+				<td>{{employee.eid}}</td>
+				<td>{{employee.ename}}</td>
+				<td>{{employee.eemail}}</td>
+				<td>{{employee.econtact}}</td>
+				<td>
+					<a href="/edit/{{employee.eid}}">
+						<span class="glyphicon glyphicon-pencil">
+							Edit
+						</span>
+					</a>
+					<a href="/delete/{{employee.eid}}">Delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+<br>
+<br>
+<center>
+	<a href="/emp" class="btn btn-primary">Add New Record</a>
+</center>
+</body>
+</html>

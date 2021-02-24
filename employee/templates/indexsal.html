@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Salary Page</title>
+</head>
+<body>
+	<form action="{% url 'indexsal1' %}" method="post">
+		{% csrf_token %}
+		Employee ID: <select name="empid">
+			{% for employee in employees %}
+					<option value="{{employee.eid}}" selected="selected">{{employee.eid}}-{{employee.ename}}</option>
+			{% endfor %}
+		</select>
+		Enter Salary:- <input type="number" name="esalary">
+		
+		<input type="submit" value="Save" />
+	</form>  
+</html>
